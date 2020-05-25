@@ -15,8 +15,8 @@ def create_proxy_class(proxy_class_name, target_class, proxy_attr_name
       def __init__(self, *args, **kwargs):
         setattr(self, proxy_attr_name, source_class())
         super(self.__class__, self).__init__(*args, **kwargs)
-  setattr(TargetClass, proxy_attr_name, None)
-  TargetClass.__name__ = proxy_class_name
+        setattr(TargetClass, proxy_attr_name, None)
+        TargetClass.__name__ = proxy_class_name
   if type(source_method_names) is str:
     source_method_names = tuple(name.strip() for name in (name.strip()
         for name in source_method_names.split(',')) if name)
